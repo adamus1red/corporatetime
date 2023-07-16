@@ -1,6 +1,5 @@
-import jquery from "jquery";
-//import moment from "moment/moment";
 var moment = require('moment-timezone');
+import 'bootstrap';
 
 function updateTime() {
     // Local TZ
