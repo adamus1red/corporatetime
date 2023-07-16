@@ -42,6 +42,7 @@ jobs:
 
           - name: Copy for '_site/'
             run: |
+              mkdir -p _site/
               mv -v dist index.html _site/
 
           - name: Upload artifact
