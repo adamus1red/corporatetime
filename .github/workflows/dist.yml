@@ -37,7 +37,7 @@ jobs:
           - name: "Clean install"
             run: npm install
     
-          - name: "Build Kiwi"
+          - name: "Build Corporate Time"
             run: npm run build
 
           - name: Copy for '_site/'
