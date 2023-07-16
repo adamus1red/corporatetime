@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Bootstrap Icons Font</title>
+</head>
+
+<body class="bg-dark clearfix">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Corporate Time</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container text-black">
+        <div class="bg-dark-subtle p-5 rounded text-center">
+            <h1>Local Corporate Time: CT-<span id="localTZ">LOCAL</span></h1>
+            <p class="lead"><span id="browser-default" class="updateTime">Not Set</span></p>
+        </div>
+
+        <div class="bg-secondary align-items-center container px-4 py-6 text-center">
+            <div class="row gx-5">
+                <div class="col-md-3 col-sm-2 col-xs-1">
+                    <h2 id="ctESTName">CT-NY</h2>
+                    <p><span id="ctEST" class="updateTime">Not Set</span></p>
+                </div>
+                <div class="col-md-3 col-sm-2 col-xs-1">
+                    <h2 id="ctGMTName">CT-LN</h2>
+                    <p><span id="ctGMT" class="updateTime">Not Set</span></p>
+                </div>
+                <div class="col-md-3 col-sm-2 col-xs-1">
+                    <h2 id="ctUTCName">CT-UTC</h2>
+                    <p><span id="ctUTC" class="updateTime">Not Set</span></p>
+                </div>
+                <div class="col-md-3 col-sm-2 col-xs-1">
+                    <h2 id="ctHKTName">CT-HK</h2>
+                    <p><span id="ctHKT" class="updateTime">Not Set</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    function updateTime() {
+        // Local TZ
+        $("#browser-default").text(moment().subtract(5, 'minutes').format("HH:mm:ss"));
+
+        // Regional TZ
+        $("#ctEST").text(moment().tz("America/New_York").subtract(5, 'minutes').format("HH:mm:ss"));
+        $("#ctGMT").text(moment().tz("Europe/London").subtract(5, 'minutes').format("HH:mm:ss"));
+        $("#ctUTC").text(moment().utc().subtract(5, 'minutes').format("HH:mm:ss"));
+        $("#ctHKT").text(moment().tz("Asia/Hong_Kong").subtract(5, 'minutes').format("HH:mm:ss"));
+    };
+    function initPage() {
+        $("#localTZ").text(moment.tz(moment.tz.guess()).format('z'));
+
+        // Regional names
+        $("#ctESTName").text("CT-" + moment.tz("America/New_York").format('z'));
+        $("#ctGMTName").text("CT-" + moment.tz("Europe/London").format('z'));
+        $("#ctUTCName").text("CT-" + moment.tz("UTC").format('z'));
+        $("#ctHKTName").text("CT-" + moment.tz("Asia/Hong_Kong").format('z'));
+        updateTime();
+        setInterval(function () {
+            updateTime();
+        }, 1000);
+    }
+
+    initPage()
+    
+</script>
+
+</html>
