@@ -3,7 +3,8 @@ import 'bootstrap';
 
 function updateTime() {
     // Local TZ
-    $("#browser-default").text(moment().subtract(5, 'minutes').format("HH:mm:ss") + " CT-" + moment.tz(moment.tz.guess()).format('z'));
+    $("#ctLocal").text(moment().subtract(5, 'minutes').format("HH:mm:ss") + " CT-" + moment.tz(moment.tz.guess()).format('z'));
+    $("#tzLocal").text(moment().format("HH:mm:ss") + " " + moment.tz(moment.tz.guess()).format('z'));
 
     // Regional TZ
     $("#ctEST").text(moment().tz("America/New_York").subtract(5, 'minutes').format("HH:mm:ss"));
