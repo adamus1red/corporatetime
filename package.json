@@ -9,16 +9,17 @@
         "startCommand": "npm start"
     },
     "scripts": {
-        "build": "npm run css",
+        "build": "npm-run-all css copy-files webpack-build",
+        "copy-files": "copyfiles --flat ./node_modules/bootstrap-icons/font/fonts/*.woff* ./dist/fonts/",
         "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules scss/:dist/",
         "css-lint": "stylelint scss/",
         "css-prefix": "postcss --replace dist/styles.css --use autoprefixer --map",
         "css-purge": "purgecss --keyframes --css dist/styles.css --content index.html --output dist/",
-        "css": "npm-run-all css-compile css-prefix css-purge webpack-build",
-        "webpack-build": "webpack-cli build --env development --progress ",
+        "css": "npm-run-all css-compile css-prefix css-purge",
+        "webpack-build": "webpack-cli build --env production --progress ",
         "server": "sirv --dev --no-clear --port 3000",
         "start": "npm-run-all --parallel watch server",
-        "watch": "nodemon -e html,scss,js -x \"npm run css\"",
+        "watch": "nodemon -e html,scss,js -x \"npm run build\"",
         "test": "npm-run-all css-lint css"
     },
     "dependencies": {
@@ -31,6 +32,8 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.4.14",
+        "copyfiles": "^2.4.1",
+        "file-loader": "^6.2.0",
         "nodemon": "^3.0.1",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.4.24",
