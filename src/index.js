@@ -28,10 +28,10 @@ function initPage() {
     $("#ctHKTName").text("CT-" + moment.tz("Asia/Hong_Kong").format('z'));
 
     // Regional Real names
-    $("#ctESTName").text(moment.tz("America/New_York").format('z'));
-    $("#ctGMTName").text(moment.tz("Europe/London").format('z'));
-    $("#ctUTCName").text(moment.tz("UTC").format('z'));
-    $("#ctHKTName").text(moment.tz("Asia/Hong_Kong").format('z'));
+    $("#ESTName").text(moment.tz("America/New_York").format('z'));
+    $("#GMTName").text(moment.tz("Europe/London").format('z'));
+    $("#UTCName").text(moment.tz("UTC").format('z'));
+    $("#HKTName").text(moment.tz("Asia/Hong_Kong").format('z'));
 
     updateTime();
     setInterval(function () {
