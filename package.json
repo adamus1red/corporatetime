@@ -14,16 +14,20 @@
         "css-lint": "stylelint scss/",
         "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map",
         "css-purge": "purgecss --keyframes --css css/styles.css --content index.html --output css/",
-        "css": "npm-run-all css-compile css-prefix css-purge",
+        "css": "npm-run-all css-compile css-prefix css-purge webpack-build",
+        "webpack-build": "webpack-cli build --env development --progress ",
         "server": "sirv --dev --no-clear --port 3000",
         "start": "npm-run-all --parallel watch server",
-        "watch": "nodemon -e html,scss -x \"npm run css\"",
+        "watch": "nodemon -e html,scss,js -x \"npm run css\"",
         "test": "npm-run-all css-lint css"
     },
     "dependencies": {
         "bootstrap": "^5.3.0",
         "bootstrap-icons": "^1.10.5",
-        "moment": "^2.29.4"
+        "jquery": "^3.7.0",
+        "moment": "^2.29.4",
+        "moment-timezone-data-webpack-plugin": "^1.5.1",
+        "webpack": "^5.88.1"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.14",
@@ -35,6 +39,7 @@
         "sass": "^1.62.1",
         "sirv-cli": "^2.0.2",
         "stylelint": "^15.6.0",
-        "stylelint-config-twbs-bootstrap": "^10.0.0"
+        "stylelint-config-twbs-bootstrap": "^10.0.0",
+        "webpack-cli": "^5.1.4"
     }
 }
