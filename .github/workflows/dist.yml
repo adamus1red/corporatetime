@@ -1,0 +1,55 @@
+name: Page Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+    
+        steps:
+          - uses: actions/checkout@v3
+            with:
+              submodules: true
+
+          - name: Get npm cache directory
+            id: npm-cache-dir
+            shell: bash
+            run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+          - uses: actions/cache@v3
+            id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+            with:
+              path: ${{ steps.npm-cache-dir.outputs.dir }}
+              key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+              restore-keys: |
+                ${{ runner.os }}-node-
+
+          - name: Setup Node.js environment
+            uses: actions/setup-node@v3.7.0
+            with:
+              node-version: latest
+    
+          - name: "Clean install"
+            run: npm install
+    
+          - name: "Build Kiwi"
+            run: npm run build
+
+          - name: Copy for '_site/'
+            run: |
+              mv -v dist index.html _site/
+
+          - name: Upload artifact
+            uses: actions/upload-pages-artifact@v2
+            with:
+              # Upload entire repository
+              path: '_site/'
+
+          - name: Deploy to GitHub Pages
+            id: deployment
+            uses: actions/deploy-pages@v2
