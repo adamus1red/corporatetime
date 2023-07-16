@@ -4,14 +4,8 @@
 
 @import "bootstrap/scss/bootstrap";
 
-
-//
-// Import Bootstrap Icons w/ custom path to fonts folder
-//
-
-$bootstrap-icons-font-dir: "../node_modules/bootstrap-icons/font/fonts";
+//$bootstrap-icons-font-dir: "../node_modules/";
 @import "bootstrap-icons/font/bootstrap-icons";
-
 
 //
 // Custom styles
@@ -19,4 +13,15 @@ $bootstrap-icons-font-dir: "../node_modules/bootstrap-icons/font/fonts";
 
 // body {
 //   padding: 1.5rem;
+// }
+.icon-square {
+    width: 3rem;
+    height: 3rem;
+    border-radius: .75rem;
+  }
+
+// @font-face {
+//     font-family: 'bootstrap-icons';
+//     src: font-url('../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2') format('woff2'),
+//     font-url('../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff') format('woff');
 // }
