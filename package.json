@@ -41,8 +41,8 @@
         "purgecss": "^5.0.0",
         "sass": "^1.69.5",
         "sirv-cli": "^2.0.2",
-        "stylelint": "^15.6.0",
-        "stylelint-config-twbs-bootstrap": "^12.0.0",
+        "stylelint": "^16.1.0",
+        "stylelint-config-twbs-bootstrap": "^13.0.0",
         "webpack-cli": "^5.1.4"
     }
 }
