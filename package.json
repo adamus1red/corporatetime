@@ -28,7 +28,7 @@
         "jquery": "^3.7.0",
         "moment": "^2.29.4",
         "moment-timezone-data-webpack-plugin": "^1.5.1",
-        "webpack": "^5.89.0"
+        "webpack": "^5.92.1"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",
