@@ -36,7 +36,7 @@
         "file-loader": "^6.2.0",
         "nodemon": "^3.0.2",
         "npm-run-all2": "^6.0.0",
-        "postcss": "^8.4.35",
+        "postcss": "^8.4.40",
         "postcss-cli": "^11.0.0",
         "purgecss": "^6.0.0",
         "sass": "^1.69.5",
