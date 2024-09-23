@@ -34,7 +34,7 @@
         "autoprefixer": "^10.4.16",
         "copyfiles": "^2.4.1",
         "file-loader": "^6.2.0",
-        "nodemon": "^3.0.2",
+        "nodemon": "^3.1.7",
         "npm-run-all2": "^6.2.2",
         "postcss": "^8.4.35",
         "postcss-cli": "^11.0.0",
