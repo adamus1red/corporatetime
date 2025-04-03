@@ -39,7 +39,7 @@
         "postcss": "8.5.3",
         "postcss-cli": "11.0.1",
         "purgecss": "7.0.2",
-        "sass": "1.86.1",
+        "sass": "1.86.2",
         "sirv-cli": "3.0.1",
         "stylelint": "16.17.0",
         "stylelint-config-twbs-bootstrap": "16.0.0",
