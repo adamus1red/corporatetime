@@ -15,9 +15,11 @@ module.exports = {
         }
     },
     plugins: [
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new webpack.ProvidePlugin({
             $: "jquery",
-            jQuery: "jquery"
+            jQuery: "jquery",
+            moment: "moment"
         }),
         new MomentTimezoneDataPlugin({
             startYear: currentYear - 5,
